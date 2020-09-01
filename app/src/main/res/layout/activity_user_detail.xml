@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.UserDetailActivity">
+
+    <ImageView
+        android:id="@+id/img_user_detail"
+        android:layout_width="@dimen/user_detail_image_size"
+        android:layout_height="@dimen/user_detail_image_size"
+        android:layout_marginStart="@dimen/margin_side"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_user_detail_following"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_user_detail_username" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_username"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_side"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_user_detail"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="User Name" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_side"
+        android:layout_marginEnd="@dimen/margin_side"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_detail_username"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_username"
+        tools:text="Email" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_side"
+        android:layout_marginEnd="@dimen/margin_side"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_detail_email"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_email"
+        tools:text="Location" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_join_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_side"
+        android:layout_marginEnd="@dimen/margin_side"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_detail_location"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_location"
+        tools:text="Join Date" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_followers_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_side"
+        android:layout_marginEnd="@dimen/margin_side"
+        android:text="@string/followers"
+        app:layout_constraintEnd_toStartOf="@id/tv_user_detail_followers"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_detail_join_date"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_join_date" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_followers"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_side"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_user_detail_followers_text"
+        app:layout_constraintTop_toTopOf="@+id/tv_user_detail_followers_text"
+        tools:text="@string/no" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_following_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/margin_side"
+        android:layout_marginEnd="@dimen/margin_side"
+        android:text="@string/following"
+        app:layout_constraintEnd_toStartOf="@+id/tv_user_detail_following"
+        app:layout_constraintStart_toStartOf="@+id/tv_user_detail_followers_text"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_followers_text" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_following"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/margin_side"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tv_user_detail_following_text"
+        app:layout_constraintTop_toTopOf="@+id/tv_user_detail_following_text"
+        tools:text="@string/no" />
+
+    <TextView
+        android:id="@+id/tv_user_detail_bio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_side"
+        android:padding="@dimen/margin_side"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_following"
+        tools:text="Bio" />
+
+    <EditText
+        android:id="@+id/et_user_repository_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_side"
+        android:hint="@string/search_for_user_repositories"
+        android:importantForAutofill="no"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@+id/tv_user_detail_bio" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_user_repositories"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_user_repository_search" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GitHubUserSearch</string>
+    <string name="search_users_hint">Search Users</string>
+    <string name="search_for_user_repositories">Search for Users Repositories</string>
+    <string name="forks">Forks</string>
+    <string name="starts">Starts</string>
+    <string name="repo">Repo:</string>
+    <string name="search_for_users">Search for Users</string>
+    <string name="no">##</string>
+    <string name="followers">Followers:</string>
+    <string name="following">Following:</string>
+</resources>

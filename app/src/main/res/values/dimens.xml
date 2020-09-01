@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_side">8dp</dimen>
+    <dimen name="margin_start">8dp</dimen>
+    <dimen name="margin_end">8dp</dimen>
+    <dimen name="user_detail_image_size">140dp</dimen>
+    <dimen name="rv_btm_margin">1dp</dimen>
+    <dimen name="search_user_image_size">80dp</dimen>
+</resources>
