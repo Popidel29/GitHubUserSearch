@@ -1,4 +1,4 @@
-package com.example.githubusersearch.view
+package com.example.githubusersearch.view.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +9,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.githubusersearch.R
 import com.example.githubusersearch.common.loadImage
 import com.example.githubusersearch.common.network.model.UserSearchModel
+import com.example.githubusersearch.view.OnUserRecyclerViewItemClicked
 import kotlinx.android.synthetic.main.search_user_item.view.*
 
 class UserSearchAdapter(
-    private val userList: UserSearchModel
-   // private val onUserRecyclerViewItemClicked: OnUserRecyclerViewItemClicked
+    private val userList: UserSearchModel,
+    private val onUserRecyclerViewItemClicked: OnUserRecyclerViewItemClicked
 ) : RecyclerView.Adapter<UserSearchAdapter.SearchViewHolder>() {
 
 
@@ -42,7 +43,7 @@ class UserSearchAdapter(
 
         fun bind(userName: String) {
             itemView.setOnClickListener {
-               // onUserRecyclerViewItemClicked.onUserItemClicked(userName)
+                onUserRecyclerViewItemClicked.onUserItemClicked(userName)
             }
         }
     }

@@ -32,16 +32,17 @@ class GitHubViewModel(private val repository: GitHubRemoteRepository) : ViewMode
 
             withContext(Dispatchers.Main) {
                 try {
-                    val list = UserSearchModel.Item(1, "klj.png", "a",1)
+                    val list = UserSearchModel.Item(1, "klj.png", "a", 1)
                     singleItem = UserSearchModel(listOf(list))
                     userListObservable.value = userSearchResponse
                 } catch (e: Exception) {
-                   userListErrorObservable.value = e.message
+                    userListErrorObservable.value = e.message
                 }
 
             }
         }
     }
+
     fun getUser(username: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val response = repository.getUser(username)
@@ -59,19 +60,46 @@ class GitHubViewModel(private val repository: GitHubRemoteRepository) : ViewMode
         }
 
     }
-        fun userListObservable(): LiveData<UserSearchModel> {
-            return userListObservable
+
+    fun getUserRepoByUser(username: String) {
+        CoroutineScope(Dispatchers.IO).launch {
+            val response = repository.getRepositoriesByUser(username)
+            withContext(Dispatchers.Main) {
+                try {
+                    userReposObservable.value = response
+                } catch (e: Exception) {
+                    userReposErrorObservable.value = e.message
+                } catch (e: HttpException) {
+                    userReposErrorObservable.value = e.message
+                } catch (e: Throwable) {
+                    userReposErrorObservable.value = e.message
+                }
+            }
         }
 
-        fun userListErrorObservable(): LiveData<String> {
-            return userListErrorObservable
-        }
+    }
 
-        fun userObservable(): LiveData<User> {
-            return userObservable
-        }
+    fun userListObservable(): LiveData<UserSearchModel> {
+        return userListObservable
+    }
 
-        fun userErrorObservable(): LiveData<String> {
-            return userErrorObservable
-        }
+    fun userListErrorObservable(): LiveData<String> {
+        return userListErrorObservable
+    }
+
+    fun userObservable(): LiveData<User> {
+        return userObservable
+    }
+
+    fun userErrorObservable(): LiveData<String> {
+        return userErrorObservable
+    }
+
+    fun userReposObservable(): LiveData<List<Repo>> {
+        return userReposObservable
+    }
+
+    fun userReposErrorObservable(): LiveData<String> {
+        return userReposErrorObservable
+    }
 }

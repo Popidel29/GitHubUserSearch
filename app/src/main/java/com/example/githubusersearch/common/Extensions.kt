@@ -12,6 +12,9 @@ import android.widget.Toast
 import com.squareup.picasso.Picasso
 
 
+fun ViewGroup.inflate(layoutId:Int):View{
+    return LayoutInflater.from(context).inflate(layoutId, this, false)
+}
 
 fun loadImage(img_url: String, imageView: ImageView) {
     Picasso.get().load(img_url).into(imageView)
